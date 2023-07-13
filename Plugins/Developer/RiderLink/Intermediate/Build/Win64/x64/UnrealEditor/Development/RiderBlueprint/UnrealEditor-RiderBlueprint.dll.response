@@ -34,7 +34,6 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 "C:\Users\Sean\Documents\Unreal Projects\Aura\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderBlueprint\Module.RiderBlueprint.cpp.obj"
-"C:\Users\Sean\Documents\Unreal Projects\Aura\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderBlueprint\BlueprintProvider.cpp.obj"
 "C:\Users\Sean\Documents\Unreal Projects\Aura\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderBlueprint\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\SlateCore\UnrealEditor-SlateCore.lib"
