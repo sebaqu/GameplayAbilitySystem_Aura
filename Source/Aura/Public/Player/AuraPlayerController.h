@@ -11,6 +11,7 @@ class UAuraInputConfig;
 class UAuraAbilitySystemComponent;
 class UInputMappingContext;
 class UInputAction;
+class USplineComponent;
 struct FInputActionValue;
 class IEnemyInterface;
 
@@ -25,6 +26,9 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
 private:
+	void Move(const FInputActionValue& InputActionValue);
+	void AutoRun();
+	
 	UPROPERTY(EditAnywhere, Category="Input")
 	TObjectPtr<UInputMappingContext> AuraContext;
 
@@ -37,12 +41,25 @@ private:
 	UPROPERTY()
 	TObjectPtr<UAuraAbilitySystemComponent> AuraAbilitySystemComponent;
 	
-	void Move(const FInputActionValue& InputActionValue);
+	UAuraAbilitySystemComponent* GetASC();
+	
+	// Targeting/Enemy Trace properties
 	void CursorTrace();
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	void AbilityInputTagReleased(FGameplayTag InputTag);
 	void AbilityInputTagHeld(FGameplayTag InputTag);
 	IEnemyInterface* LastActor;
 	IEnemyInterface* ThisActor;
-	UAuraAbilitySystemComponent* GetASC();
+	FHitResult CursorHit;
+	
+	// Click to Move properties
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<USplineComponent> Spline;
+	UPROPERTY(EditDefaultsOnly)
+	float AutoRunAcceptanceRadius = 50.f;
+	FVector CachedDestination = FVector::ZeroVector;
+	float FollowTime = 0.f;
+	float ShortPressedThreshold = 0.5f;
+	bool bAutoRunning = false;
+	bool bTargeting = false;
 };
